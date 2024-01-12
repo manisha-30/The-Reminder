@@ -13,6 +13,8 @@
 		F94F019A2B463F920004CF3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94F01982B463F920004CF3A /* Main.storyboard */; };
 		F94F019C2B463F930004CF3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94F019B2B463F930004CF3A /* Assets.xcassets */; };
 		F94F019F2B463F930004CF3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94F019D2B463F930004CF3A /* LaunchScreen.storyboard */; };
+		F9BE555A2B50700300761781 /* DailyRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9BE55592B50700300761781 /* DailyRecordCell.xib */; };
+		F9BE555C2B50701A00761781 /* DailyRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE555B2B50701A00761781 /* DailyRecordCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		F94F019B2B463F930004CF3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F94F019E2B463F930004CF3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F94F01A02B463F930004CF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9BE55592B50700300761781 /* DailyRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyRecordCell.xib; sourceTree = "<group>"; };
+		F9BE555B2B50701A00761781 /* DailyRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				F94F01922B463F920004CF3A /* AppDelegate.swift */,
 				F94F01942B463F920004CF3A /* SceneDelegate.swift */,
 				F94F01962B463F920004CF3A /* ViewController.swift */,
+				F9BE555B2B50701A00761781 /* DailyRecordCell.swift */,
+				F9BE55592B50700300761781 /* DailyRecordCell.xib */,
 				F94F01982B463F920004CF3A /* Main.storyboard */,
 				F94F019B2B463F930004CF3A /* Assets.xcassets */,
 				F94F019D2B463F930004CF3A /* LaunchScreen.storyboard */,
@@ -127,6 +133,7 @@
 			files = (
 				F94F019F2B463F930004CF3A /* LaunchScreen.storyboard in Resources */,
 				F94F019C2B463F930004CF3A /* Assets.xcassets in Resources */,
+				F9BE555A2B50700300761781 /* DailyRecordCell.xib in Resources */,
 				F94F019A2B463F920004CF3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +147,7 @@
 			files = (
 				F94F01972B463F920004CF3A /* ViewController.swift in Sources */,
 				F94F01932B463F920004CF3A /* AppDelegate.swift in Sources */,
+				F9BE555C2B50701A00761781 /* DailyRecordCell.swift in Sources */,
 				F94F01952B463F920004CF3A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
