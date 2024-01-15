@@ -8,11 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+    
+    @IBOutlet weak var outerCircleView: UIView!
     @IBOutlet weak var innercircle: UIView!
     @IBOutlet weak var tableView : UITableView!
     
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    let shapeLayer = CAShapeLayer()
     override func viewDidLoad() {
         super.viewDidLoad()
         innercircle.layer.cornerRadius = innercircle.frame.width / 2
@@ -20,21 +22,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Do any additional setup after loading the view.
         
         tableView.layer.cornerRadius = 5  // Adjust the corner radius as needed
-                tableView.layer.shadowColor = UIColor.black.cgColor  // Adjust the shadow color as needed
-                tableView.layer.shadowOffset = CGSize(width: 0, height: 2)  // Adjust the shadow offset as needed
-                tableView.layer.shadowOpacity = 0.5  // Adjust the shadow opacity as needed
-                tableView.layer.shadowRadius = 2  // Adjust the shadow radius as needed
-                tableView.layer.masksToBounds = false
-//
-//        let totalCellHeight = calculateTotalCellHeight()
-//        print("manisha",totalCellHeight)
-//        //tableView.frame.size.height = CGFloat(50*90)
-//        heightConstraint.constant = ceil(totalCellHeight)
+        tableView.layer.shadowColor = UIColor.black.cgColor  // Adjust the shadow color as needed
+        tableView.layer.shadowOffset = CGSize(width: 0, height: 2)  // Adjust the shadow offset as needed
+        tableView.layer.shadowOpacity = 0.5  // Adjust the shadow opacity as needed
+        tableView.layer.shadowRadius = 2  // Adjust the shadow radius as needed
+        tableView.layer.masksToBounds = false
+        
         
         self.tableView.register(UINib(nibName: "DailyRecordCell", bundle: nil), forCellReuseIdentifier: "DailyRecordCell")
 
         
         self.tableView.invalidateIntrinsicContentSize()
+        
+        drawSemiCircle()
+        
+        innercircle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSemicircle)))
     }
     override func viewWillLayoutSubviews() {
         self.heightConstraint.constant = CGFloat(10 * 90)
@@ -54,17 +56,31 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return 90
     }
     
-    func calculateTotalCellHeight() -> CGFloat {
-        var totalHeight: CGFloat = 0
-
-               for row in 0..<50 {
-                   let indexPath = IndexPath(row: row, section: 0)
-                   totalHeight += tableView.delegate?.tableView?(tableView, heightForRowAt: indexPath) ?? 0
-               }
-
-               return totalHeight
-       }
-
+    func drawSemiCircle(){
+        
+        let center = CGPoint(x: outerCircleView.frame.width / 2, y: outerCircleView.frame.height / 2)
+        let semiCirclePath = UIBezierPath(arcCenter: center, radius: innercircle.frame.width / 2 + 25 , startAngle: CGFloat.pi, endAngle: 2 * CGFloat.pi, clockwise: true)
+        //semiCirclePath.close()
+        shapeLayer.path = semiCirclePath.cgPath
+      shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.lineWidth = 7
+        shapeLayer.strokeEnd = 0
+        shapeLayer.lineCap = .round
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        self.outerCircleView.layer.addSublayer(shapeLayer)
+        
+    }
+    
+    @objc func handleSemicircle(){
+        print("hell world")
+        
+        let animate = CABasicAnimation(keyPath: "strokeEnd")
+        animate.toValue = 1
+        animate.duration = 3
+        animate.fillMode = .forwards
+        animate.isRemovedOnCompletion = false
+        shapeLayer.add(animate, forKey: "drawCircle")
+    }
 }
 
 
