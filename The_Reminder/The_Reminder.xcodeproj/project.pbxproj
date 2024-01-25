@@ -7,17 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01B451A1AD7340F44D6E0BA2 /* Pods_The_Reminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8320D425B00C6FE2319911 /* Pods_The_Reminder.framework */; };
 		F94F01932B463F920004CF3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F01922B463F920004CF3A /* AppDelegate.swift */; };
 		F94F01952B463F920004CF3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F01942B463F920004CF3A /* SceneDelegate.swift */; };
 		F94F01972B463F920004CF3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F01962B463F920004CF3A /* ViewController.swift */; };
 		F94F019A2B463F920004CF3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94F01982B463F920004CF3A /* Main.storyboard */; };
 		F94F019C2B463F930004CF3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94F019B2B463F930004CF3A /* Assets.xcassets */; };
 		F94F019F2B463F930004CF3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94F019D2B463F930004CF3A /* LaunchScreen.storyboard */; };
+		F961FEE62B5BA05B005378AF /* WDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F961FEE52B5BA05B005378AF /* WDatas.swift */; };
+		F961FEE92B5BADEF005378AF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F961FEE82B5BADEF005378AF /* ViewModel.swift */; };
+		F961FEEC2B5C4951005378AF /* chooseCup.xib in Resources */ = {isa = PBXBuildFile; fileRef = F961FEEB2B5C4951005378AF /* chooseCup.xib */; };
+		F961FEEE2B5D2379005378AF /* chooseCup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F961FEED2B5D2379005378AF /* chooseCup.swift */; };
+		F961FEF22B5E757A005378AF /* customizedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F961FEF12B5E757A005378AF /* customizedClass.swift */; };
+		F961FEF42B5E7C1E005378AF /* AdditionalCups.swift in Sources */ = {isa = PBXBuildFile; fileRef = F961FEF32B5E7C1E005378AF /* AdditionalCups.swift */; };
 		F9BE555A2B50700300761781 /* DailyRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9BE55592B50700300761781 /* DailyRecordCell.xib */; };
 		F9BE555C2B50701A00761781 /* DailyRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE555B2B50701A00761781 /* DailyRecordCell.swift */; };
+		F9CE9FD72B5FA6E20088310C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE9FD62B5FA6E20088310C /* OnboardingViewController.swift */; };
+		F9CE9FD92B5FA70F0088310C /* OnboardingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9CE9FD82B5FA70F0088310C /* OnboardingViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		386FDF8856952491518C545F /* Pods-The_Reminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Reminder.release.xcconfig"; path = "Target Support Files/Pods-The_Reminder/Pods-The_Reminder.release.xcconfig"; sourceTree = "<group>"; };
+		AFA0F9073339CB8F2DFE6D43 /* Pods-The_Reminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Reminder.debug.xcconfig"; path = "Target Support Files/Pods-The_Reminder/Pods-The_Reminder.debug.xcconfig"; sourceTree = "<group>"; };
 		F94F018F2B463F920004CF3A /* The_Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = The_Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94F01922B463F920004CF3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94F01942B463F920004CF3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,8 +37,17 @@
 		F94F019B2B463F930004CF3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F94F019E2B463F930004CF3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F94F01A02B463F930004CF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F961FEE52B5BA05B005378AF /* WDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDatas.swift; sourceTree = "<group>"; };
+		F961FEE82B5BADEF005378AF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		F961FEEB2B5C4951005378AF /* chooseCup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = chooseCup.xib; sourceTree = "<group>"; };
+		F961FEED2B5D2379005378AF /* chooseCup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chooseCup.swift; sourceTree = "<group>"; };
+		F961FEF12B5E757A005378AF /* customizedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customizedClass.swift; sourceTree = "<group>"; };
+		F961FEF32B5E7C1E005378AF /* AdditionalCups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCups.swift; sourceTree = "<group>"; };
 		F9BE55592B50700300761781 /* DailyRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyRecordCell.xib; sourceTree = "<group>"; };
 		F9BE555B2B50701A00761781 /* DailyRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecordCell.swift; sourceTree = "<group>"; };
+		F9CE9FD62B5FA6E20088310C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		F9CE9FD82B5FA70F0088310C /* OnboardingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingViewController.storyboard; sourceTree = "<group>"; };
+		FE8320D425B00C6FE2319911 /* Pods_The_Reminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Reminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +55,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01B451A1AD7340F44D6E0BA2 /* Pods_The_Reminder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021B8CB5B6EBE3A256E276B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFA0F9073339CB8F2DFE6D43 /* Pods-The_Reminder.debug.xcconfig */,
+				386FDF8856952491518C545F /* Pods-The_Reminder.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F94F01862B463F920004CF3A = {
 			isa = PBXGroup;
 			children = (
+				F9CE9FD52B5FA6210088310C /* OnboardingScreen */,
+				F961FEF02B5E7523005378AF /* Helper class */,
+				F961FEEF2B5E74F9005378AF /* Assets */,
+				F961FEEA2B5C4929005378AF /* View */,
+				F961FEE72B5BADCF005378AF /* ViewModel */,
+				F961FEE42B5BA00B005378AF /* Model */,
 				F94F01912B463F920004CF3A /* The_Reminder */,
 				F94F01902B463F920004CF3A /* Products */,
+				021B8CB5B6EBE3A256E276B4 /* Pods */,
+				F9C0346C158643B4664383BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,15 +100,73 @@
 			children = (
 				F94F01922B463F920004CF3A /* AppDelegate.swift */,
 				F94F01942B463F920004CF3A /* SceneDelegate.swift */,
-				F94F01962B463F920004CF3A /* ViewController.swift */,
-				F9BE555B2B50701A00761781 /* DailyRecordCell.swift */,
-				F9BE55592B50700300761781 /* DailyRecordCell.xib */,
-				F94F01982B463F920004CF3A /* Main.storyboard */,
-				F94F019B2B463F930004CF3A /* Assets.xcassets */,
 				F94F019D2B463F930004CF3A /* LaunchScreen.storyboard */,
 				F94F01A02B463F930004CF3A /* Info.plist */,
 			);
 			path = The_Reminder;
+			sourceTree = "<group>";
+		};
+		F961FEE42B5BA00B005378AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F961FEE52B5BA05B005378AF /* WDatas.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F961FEE72B5BADCF005378AF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F961FEE82B5BADEF005378AF /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F961FEEA2B5C4929005378AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9BE555B2B50701A00761781 /* DailyRecordCell.swift */,
+				F94F01962B463F920004CF3A /* ViewController.swift */,
+				F961FEEB2B5C4951005378AF /* chooseCup.xib */,
+				F961FEED2B5D2379005378AF /* chooseCup.swift */,
+				F9BE55592B50700300761781 /* DailyRecordCell.xib */,
+				F94F01982B463F920004CF3A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F961FEEF2B5E74F9005378AF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F94F019B2B463F930004CF3A /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F961FEF02B5E7523005378AF /* Helper class */ = {
+			isa = PBXGroup;
+			children = (
+				F961FEF12B5E757A005378AF /* customizedClass.swift */,
+				F961FEF32B5E7C1E005378AF /* AdditionalCups.swift */,
+			);
+			path = "Helper class";
+			sourceTree = "<group>";
+		};
+		F9C0346C158643B4664383BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE8320D425B00C6FE2319911 /* Pods_The_Reminder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9CE9FD52B5FA6210088310C /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F9CE9FD62B5FA6E20088310C /* OnboardingViewController.swift */,
+				F9CE9FD82B5FA70F0088310C /* OnboardingViewController.storyboard */,
+			);
+			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F94F01A32B463F930004CF3A /* Build configuration list for PBXNativeTarget "The_Reminder" */;
 			buildPhases = (
+				BDC49DD253271A028CFCD62E /* [CP] Check Pods Manifest.lock */,
 				F94F018B2B463F920004CF3A /* Sources */,
 				F94F018C2B463F920004CF3A /* Frameworks */,
 				F94F018D2B463F920004CF3A /* Resources */,
+				9B847493571C44AC7E3815DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,14 +229,58 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9CE9FD92B5FA70F0088310C /* OnboardingViewController.storyboard in Resources */,
 				F94F019F2B463F930004CF3A /* LaunchScreen.storyboard in Resources */,
 				F94F019C2B463F930004CF3A /* Assets.xcassets in Resources */,
 				F9BE555A2B50700300761781 /* DailyRecordCell.xib in Resources */,
 				F94F019A2B463F920004CF3A /* Main.storyboard in Resources */,
+				F961FEEC2B5C4951005378AF /* chooseCup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B847493571C44AC7E3815DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-The_Reminder/Pods-The_Reminder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-The_Reminder/Pods-The_Reminder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-The_Reminder/Pods-The_Reminder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDC49DD253271A028CFCD62E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-The_Reminder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F94F018B2B463F920004CF3A /* Sources */ = {
@@ -146,9 +288,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F94F01972B463F920004CF3A /* ViewController.swift in Sources */,
+				F961FEF42B5E7C1E005378AF /* AdditionalCups.swift in Sources */,
 				F94F01932B463F920004CF3A /* AppDelegate.swift in Sources */,
 				F9BE555C2B50701A00761781 /* DailyRecordCell.swift in Sources */,
 				F94F01952B463F920004CF3A /* SceneDelegate.swift in Sources */,
+				F961FEE92B5BADEF005378AF /* ViewModel.swift in Sources */,
+				F961FEF22B5E757A005378AF /* customizedClass.swift in Sources */,
+				F9CE9FD72B5FA6E20088310C /* OnboardingViewController.swift in Sources */,
+				F961FEEE2B5D2379005378AF /* chooseCup.swift in Sources */,
+				F961FEE62B5BA05B005378AF /* WDatas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,16 +438,18 @@
 		};
 		F94F01A42B463F930004CF3A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFA0F9073339CB8F2DFE6D43 /* Pods-The_Reminder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S593B262J6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = The_Reminder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -318,16 +468,18 @@
 		};
 		F94F01A52B463F930004CF3A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 386FDF8856952491518C545F /* Pods-The_Reminder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S593B262J6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = The_Reminder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
