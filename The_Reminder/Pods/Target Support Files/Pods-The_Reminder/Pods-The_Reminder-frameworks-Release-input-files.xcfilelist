@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-The_Reminder/Pods-The_Reminder-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
+${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
