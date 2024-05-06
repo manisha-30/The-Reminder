@@ -8,7 +8,7 @@
 import Foundation
 
 class AdditionalCups{
-    var additionalCups = [
+    var additionalCups:[[String:Any]] = [
         [
             "image":"100",
             "quantity":"100 ml",
@@ -68,6 +68,7 @@ class AdditionalCups{
     func get()-> NSArray{
         return additionalCups as NSArray
     }
+    func updateCups(){}
     func add(quantity:Int , imageName:String = "100"){
         if additionalCups.count > 0{
             let cup : [String : Any] = [

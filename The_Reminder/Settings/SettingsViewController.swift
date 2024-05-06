@@ -1,13 +1,13 @@
 //
-//  OnboardingViewController.swift
+//  SettingsViewController.swift
 //  The_Reminder
 //
-//  Created by Ashok on 23/01/24.
+//  Created by Ashok on 11/03/24.
 //
 
 import UIKit
 
-class OnboardingViewController: UIPageViewController {
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
