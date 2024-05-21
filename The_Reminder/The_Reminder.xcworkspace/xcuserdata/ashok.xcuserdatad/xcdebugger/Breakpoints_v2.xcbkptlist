@@ -34,98 +34,6 @@
             endingLineNumber = "17"
             landmarkName = "addValue()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E9B313C0-6D3D-4715-8E8D-0ACF4952407B - 5bebb923e0eff630"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "The_Reminder.ViewModel.addValue() -&gt; ()"
-                  moduleName = "The_Reminder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashok/Documents/The-Reminder/The_Reminder/ViewModel/ViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "864">
-               </Location>
-               <Location
-                  uuid = "E9B313C0-6D3D-4715-8E8D-0ACF4952407B - 5bebb923e0eff630"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "The_Reminder.ViewModel.addValue() -&gt; ()"
-                  moduleName = "The_Reminder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashok/Documents/The-Reminder/The_Reminder/ViewModel/ViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "996">
-               </Location>
-               <Location
-                  uuid = "E9B313C0-6D3D-4715-8E8D-0ACF4952407B - eb99b77bf9406fb3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "The_Reminder.ViewModel.addValue(completion: (Swift.Optional&lt;RealmSwift.Results&lt;The_Reminder.WDatas&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "The_Reminder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashok/Documents/The-Reminder/The_Reminder/ViewModel/ViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "1124">
-               </Location>
-               <Location
-                  uuid = "E9B313C0-6D3D-4715-8E8D-0ACF4952407B - eb99b77bf9406fb3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "The_Reminder.ViewModel.addValue(completion: (Swift.Optional&lt;RealmSwift.Results&lt;The_Reminder.WDatas&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "The_Reminder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashok/Documents/The-Reminder/The_Reminder/ViewModel/ViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "1076">
-               </Location>
-               <Location
-                  uuid = "E9B313C0-6D3D-4715-8E8D-0ACF4952407B - eb99b77bf9406f92"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "The_Reminder.ViewModel.addValue(completion: (Swift.Optional&lt;RealmSwift.Results&lt;The_Reminder.WDatas&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "The_Reminder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashok/Documents/The-Reminder/The_Reminder/ViewModel/ViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "840">
-               </Location>
-               <Location
-                  uuid = "E9B313C0-6D3D-4715-8E8D-0ACF4952407B - 5bebb923e0eff611"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "The_Reminder.ViewModel.addValue() -&gt; ()"
-                  moduleName = "The_Reminder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashok/Documents/The-Reminder/The_Reminder/ViewModel/ViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "796">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -142,38 +50,6 @@
             endingLineNumber = "63"
             landmarkName = "handleSemicircle()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CDD50A2D-B572-4D8E-A09D-FF8D2AAACC12 - c72f4dac95faa3c4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "The_Reminder.ViewController.handleSemicircle() -&gt; ()"
-                  moduleName = "The_Reminder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashok/Documents/The-Reminder/The_Reminder/The_Reminder/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "812">
-               </Location>
-               <Location
-                  uuid = "CDD50A2D-B572-4D8E-A09D-FF8D2AAACC12 - 2ab2258e513293ef"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in The_Reminder.ViewController.handleSemicircle() -&gt; ()"
-                  moduleName = "The_Reminder"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ashok/Documents/The-Reminder/The_Reminder/The_Reminder/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "108">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

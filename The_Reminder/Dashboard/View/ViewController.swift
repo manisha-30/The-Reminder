@@ -24,9 +24,11 @@ class ViewController: UIViewController {
     let shapeLayer = CAShapeLayer()
     var wdatas : Results<WDatas>!
     let realm = try! Realm()
-    var additionalCups = NSArray()
+    var additionalCups:[cup] = []
     var backGroundView = UIView()
+    var collectionView = ContentSizedcollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let vm = ViewModel()
+    var previousOption: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "DailyRecordCell", bundle: nil), forCellReuseIdentifier: "DailyRecordCell")
@@ -39,6 +41,10 @@ class ViewController: UIViewController {
         setupUI()
         drawSemiCircle()
         updateIntakeValue(intakeQuantity: 0)
+    }
+    
+    @IBAction func addDailyTarget(_ sender: Any) {
+        addMissingTarget()
     }
     func drawSemiCircle(){
         
@@ -77,7 +83,9 @@ class ViewController: UIViewController {
         }
         animateLabel.transform = .identity
 
-        updateIntakeValue(intakeQuantity: 100)
+        let quantity = UserDefaults.standard.integer(forKey: "selectedCup")
+        animateLabel.text = "+\(quantity) Well done"
+        updateIntakeValue(intakeQuantity: quantity)
         
         UIView.animate(withDuration: 1.5){
             self.animateLabel.alpha = 1
@@ -148,13 +156,12 @@ class ViewController: UIViewController {
     }
   
     func handlePopUp(){
-        let currentWindow : UIWindow? = UIApplication.shared.keyWindow
         let screenSize = UIScreen.main.bounds
         
         backGroundView = UIView()
         backGroundView.frame = CGRect.init(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
         backGroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        currentWindow?.addSubview(backGroundView)
+        self.view.addSubview(backGroundView)
         
         let popupView = UIView()
         popupView.backgroundColor = UIColor.white
@@ -190,7 +197,7 @@ class ViewController: UIViewController {
             closeButton.widthAnchor.constraint(equalToConstant: 30)
         ])
         
-        let collectionView = ContentSizedcollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+         collectionView = ContentSizedcollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(UINib(nibName: "chooseCup", bundle: nil), forCellWithReuseIdentifier: "chooseCup")
         collectionView.delegate = self
@@ -205,6 +212,7 @@ class ViewController: UIViewController {
         
         let okButton = UIButton()
         okButton.setTitle("OK", for: .normal)
+        okButton.addTarget(self, action: #selector(confirmAct), for: .touchUpInside)
         okButton.setTitleColor(UIColor.black, for: .normal)
         okButton.translatesAutoresizingMaskIntoConstraints = false
         popupView.addSubview(okButton)
@@ -216,7 +224,84 @@ class ViewController: UIViewController {
     }
     @objc func dismissPopup(){
         print("dismiss popup")
+        if previousOption != ""{
+            UserDefaults.standard.setValue(previousOption, forKey: "selectedCup")
+        }
+        previousOption = ""
         backGroundView.isHidden = true
+    }
+    @objc func confirmAct(){
+        previousOption = ""
+        backGroundView.isHidden = true
+    }
+    func addMissingTarget(){
+        let screenSize = UIScreen.main.bounds
+        
+        backGroundView = UIView()
+        backGroundView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
+        backGroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        self.view.addSubview(backGroundView)
+        
+        let backView = UIView()
+        backView.backgroundColor = UIColor.white
+        backGroundView.addSubview(backView)
+        backView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backView.leadingAnchor.constraint(equalTo: backGroundView.leadingAnchor, constant: 10),
+            backView.trailingAnchor.constraint(equalTo: backGroundView.trailingAnchor, constant: -10),
+            backView.centerXAnchor.constraint(equalTo: backGroundView.centerXAnchor),
+            backView.centerYAnchor.constraint(equalTo: backGroundView.centerYAnchor)
+        ])
+        
+        let instructionLabel = UILabel()
+        instructionLabel.text = "Add a record of drinking water in the past that you forgot to confirm"
+        instructionLabel.numberOfLines = 0
+        instructionLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        backView.addSubview(instructionLabel)
+        instructionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            instructionLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 10),
+            instructionLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -10),
+            instructionLabel.topAnchor.constraint(equalTo: backView.topAnchor,constant: 10)
+        ])
+        
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        backView.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -10),
+            stackView.topAnchor.constraint(equalTo: instructionLabel.topAnchor,constant: 15),
+            stackView.bottomAnchor.constraint(equalTo: backView.bottomAnchor,constant: -10)
+        ])
+        
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .time
+        if #available(iOS 15, *) {
+            datePicker.maximumDate = .now
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
+        stackView.addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            datePicker.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
+            //datePicker.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
+            datePicker.topAnchor.constraint(equalTo: stackView.topAnchor,constant: 10),
+            datePicker.heightAnchor.constraint(equalToConstant: 50),
+            datePicker.bottomAnchor.constraint(equalTo: stackView.bottomAnchor,constant: -10)
+        ])
+        
+        
     }
 }
 extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -227,13 +312,18 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chooseCup", for: indexPath) as! chooseCup
-        let dict = additionalCups.object(at: indexPath.item)as! NSDictionary
-        let imageName = dict.value(forKey: "image") as! String
-        let quantity = dict.value(forKey: "quantity") as! String
-        let isDeletable = dict.value(forKey: "isDeletable") as! Bool
-        cell.quantityImage.image =  UIImage(named: imageName)
-        cell.quantityLabel.text = quantity
-        if isDeletable{
+        let dict = additionalCups[indexPath.item]
+        let Selectedimage = UserDefaults.standard.string(forKey: "selectedCup")
+        
+        if Selectedimage == dict.image{
+            cell.quantityImage.image =  UIImage(named: "\(dict.image)f")
+            cell.quantityImage.tintColor = hexStringToUIColor(hex: "#568ce3")
+        }else{
+            cell.quantityImage.image =  UIImage(named: dict.image)
+            cell.quantityImage.tintColor = hexStringToUIColor(hex: "#000000")
+        }
+        cell.quantityLabel.text = dict.quantity
+        if dict.isDeletable{
             cell.deleteCup.isHidden = false
         }else{
             cell.deleteCup.isHidden = true
@@ -245,9 +335,10 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
         }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedData = additionalCups.object(at: indexPath.item) as! NSDictionary
-        let renamedImage = "\(selectedData.value(forKey: "image") as! String)f"
-        
+        let selectedData = additionalCups[indexPath.item].image
+        previousOption = UserDefaults.standard.string(forKey: "selectedCup") ?? ""
+        UserDefaults.standard.setValue(selectedData, forKey: "selectedCup")
+        collectionView.reloadData()
     }
 }
 extension ViewController : UITableViewDelegate,UITableViewDataSource{
