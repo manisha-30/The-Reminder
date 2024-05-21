@@ -10,6 +10,7 @@ import RealmSwift
 class ViewController: UIViewController {
     
    
+    @IBOutlet weak var inTakeLabel: UILabel!
     @IBOutlet weak var addQuantity: UIImageView!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var tipView: UIView!
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
         }
         setupUI()
         drawSemiCircle()
+        updateIntakeValue(intakeQuantity: 0)
     }
     func drawSemiCircle(){
         
@@ -75,6 +77,8 @@ class ViewController: UIViewController {
         }
         animateLabel.transform = .identity
 
+        updateIntakeValue(intakeQuantity: 100)
+        
         UIView.animate(withDuration: 1.5){
             self.animateLabel.alpha = 1
             self.animateLabel.transform = CGAffineTransform(translationX: 0, y: -50)
@@ -119,8 +123,23 @@ class ViewController: UIViewController {
         innercircle.layer.shadowRadius = 7
         innercircle.layer.shadowOpacity = 0.4
         
+       
+    }
+    func updateIntakeValue(intakeQuantity : Int){
+        let total = (UserDefaults.standard.integer(forKey: "totalInTakeValue") ) + intakeQuantity
+        UserDefaults.standard.set(total, forKey: "totalInTakeValue")
+        inTakeLabel.text = "\(total)/1200 ml"
+    }
+    @IBAction func homeBtn(_ sender: Any) {
         
     }
+    
+    @IBAction func historyBtn(_ sender: Any) {
+    }
+    
+    @IBAction func settingsBtn(_ sender: Any) {
+    }
+    
     @objc func swapCups(){
         print("cup swapped")
         additionalCups =  AdditionalCups.init().get()
@@ -213,7 +232,7 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
         let quantity = dict.value(forKey: "quantity") as! String
         let isDeletable = dict.value(forKey: "isDeletable") as! Bool
         cell.quantityImage.image =  UIImage(named: imageName)
-        cell.quantityLabel.text = quantity as! String
+        cell.quantityLabel.text = quantity
         if isDeletable{
             cell.deleteCup.isHidden = false
         }else{
@@ -225,7 +244,11 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
             return CGSize(width: 90, height: 90)
         }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedData = additionalCups.object(at: indexPath.item) as! NSDictionary
+        let renamedImage = "\(selectedData.value(forKey: "image") as! String)f"
+        
+    }
 }
 extension ViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
