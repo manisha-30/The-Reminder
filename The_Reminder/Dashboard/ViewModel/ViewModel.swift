@@ -20,7 +20,8 @@ class ViewModel : NSObject{
         let inputDate = result[0]
         let inputTime = result[1]
         let addInstance = WDatas()
-        addInstance.value = 100
+        let quantity = UserDefaults.standard.integer(forKey: "selectedCup")
+        addInstance.value = quantity
         addInstance.date = inputDate
         addInstance.time = inputTime
         
@@ -32,7 +33,7 @@ class ViewModel : NSObject{
         let result = getDateAndTime()
         let inputDate = result[0]
         print(result)
-        self.wdatas = self.realm.objects(WDatas.self).filter("date == %@", inputDate)
+        self.wdatas = self.realm.objects(WDatas.self).filter("date == %@", inputDate).sorted(byKeyPath: "time", ascending: false)
         print("fff",wdatas.count)
         completion(wdatas)
     }

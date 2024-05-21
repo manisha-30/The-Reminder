@@ -7,49 +7,21 @@
 
 import Foundation
 
+struct cup{
+    var image: String
+    var quantity: String
+    var isDeletable : Bool
+}
 class AdditionalCups{
-    var additionalCups:[[String:Any]] = [
-        [
-            "image":"100",
-            "quantity":"100 ml",
-            "isDeletable" : false
-        ],
-        [
-            "image":"125",
-            "quantity":"125 ml",
-            "isDeletable" : false
-        ],
-        [
-            "image":"150",
-            "quantity":"150 ml",
-            "isDeletable" : false
-        ],
-        [
-            "image":"175",
-            "quantity":"175 ml",
-            "isDeletable" : false
-        ],
-        [
-            "image":"200",
-            "quantity":"200 ml",
-            "isDeletable" : false
-        ],
-        [
-            "image":"300",
-            "quantity":"300 ml",
-            "isDeletable" : false
-        ],
-        [
-            "image":"400",
-            "quantity":"400 ml",
-            "isDeletable" : false
-        ],
-        [
-            "image":"customize",
-            "quantity":"Customize",
-            "isDeletable" : false
-        ],
-        
+    static var additionalCups:[cup] = [
+        cup(image: "100", quantity: "100 ml", isDeletable: false),
+        cup(image: "125", quantity: "125 ml", isDeletable: false),
+        cup(image: "150", quantity: "150 ml", isDeletable: false),
+        cup(image: "175", quantity: "175 ml", isDeletable: false),
+        cup(image: "200", quantity: "200 ml", isDeletable: false),
+        cup(image: "300", quantity: "300 ml", isDeletable: false),
+        cup(image: "400", quantity: "400 ml", isDeletable: false),
+        cup(image: "customize", quantity: "Customize", isDeletable: false)
     ]
     var drinkingTips = [
         "Do not drink water immediately after eating.",
@@ -65,23 +37,24 @@ class AdditionalCups{
         return drinkingTips[index]
     }
     
-    func get()-> NSArray{
-        return additionalCups as NSArray
+    func get()-> [cup]{
+        return AdditionalCups.additionalCups
     }
-    func updateCups(){}
+    func updateCups(index:Int,isdeletable:Bool,image:String){
+        if index < AdditionalCups.additionalCups.count{
+            AdditionalCups.additionalCups[index].image = image
+            AdditionalCups.additionalCups[index].isDeletable = isdeletable
+        }
+    }
     func add(quantity:Int , imageName:String = "100"){
-        if additionalCups.count > 0{
-            let cup : [String : Any] = [
-                "image": imageName,
-                "quantity": "\(quantity)",
-                "isDeletable" : true
-            ]
-            additionalCups.insert(cup, at: additionalCups.count - 1)
+        if AdditionalCups.additionalCups.count > 0{
+            let cup = cup(image: imageName, quantity: "\(quantity)", isDeletable: true)
+            AdditionalCups.additionalCups.insert(cup, at: AdditionalCups.additionalCups.count - 1)
         }
     }
     func delete(index:Int){
-        if additionalCups.count > index{
-            additionalCups.remove(at: index)
+        if AdditionalCups.additionalCups.count > index{
+            AdditionalCups.additionalCups.remove(at: index)
         }
     }
 }

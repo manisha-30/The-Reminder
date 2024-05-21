@@ -17,8 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Thread.sleep(forTimeInterval: 3.0)
         if UserDefaults.standard.object(forKey: "totalInTakeValue") == nil{
             UserDefaults.standard.set(0, forKey: "totalInTakeValue")
-            UserDefaults.standard.synchronize()
         }
+        if UserDefaults.standard.object(forKey: "selectedCup") == nil{
+            UserDefaults.standard.setValue("100", forKey: "selectedCup")
+        }
+        UserDefaults.standard.synchronize()
         return true
     }
 
