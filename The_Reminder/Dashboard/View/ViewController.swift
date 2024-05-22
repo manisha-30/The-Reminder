@@ -244,6 +244,8 @@ class ViewController: UIViewController {
         
         let backView = UIView()
         backView.backgroundColor = UIColor.white
+        backView.layer.cornerRadius = 10
+        backView.layer.masksToBounds = true
         backGroundView.addSubview(backView)
         backView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -262,12 +264,12 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             instructionLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 10),
             instructionLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -10),
-            instructionLabel.topAnchor.constraint(equalTo: backView.topAnchor,constant: 10)
+            instructionLabel.topAnchor.constraint(equalTo: backView.topAnchor,constant: 20)
         ])
         
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fillEqually
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         backView.addSubview(stackView)
@@ -275,9 +277,9 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -10),
-            stackView.topAnchor.constraint(equalTo: instructionLabel.topAnchor,constant: 15),
+            stackView.topAnchor.constraint(equalTo: instructionLabel.topAnchor,constant: 25),
             stackView.heightAnchor.constraint(equalToConstant: 200),
-            stackView.bottomAnchor.constraint(equalTo: backView.bottomAnchor,constant: -10)
+            //stackView.bottomAnchor.constraint(equalTo: backView.bottomAnchor,constant: -10)
         ])
         
         let datePicker = UIDatePicker()
@@ -298,11 +300,79 @@ class ViewController: UIViewController {
             datePicker.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
             //datePicker.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
             datePicker.topAnchor.constraint(equalTo: stackView.topAnchor,constant: 10),
-            datePicker.heightAnchor.constraint(equalToConstant: 50),
-            datePicker.bottomAnchor.constraint(equalTo: stackView.bottomAnchor,constant: -10)
+            datePicker.bottomAnchor.constraint(equalTo: stackView.bottomAnchor,constant: -10),
+            datePicker.widthAnchor.constraint(equalToConstant: 150)
         ])
         
+        let image = UIImageView()
+        image.image = UIImage(named: "150f")
+        image.tintColor = hexStringToUIColor(hex: "#0ACBFF")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addSubview(image)
+        NSLayoutConstraint.activate([
+            image.leadingAnchor.constraint(equalTo: datePicker.trailingAnchor, constant: 20),
+            image.centerYAnchor.constraint(equalTo: datePicker.centerYAnchor),
+            image.heightAnchor.constraint(equalToConstant: 25),
+            image.widthAnchor.constraint(equalToConstant: 25)
+        ])
         
+        let textField = UITextField()
+        textField.borderStyle = .line
+        textField.keyboardType = .numberPad
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addSubview(textField)
+        NSLayoutConstraint.activate([
+            textField.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 10),
+            textField.centerYAnchor.constraint(equalTo: datePicker.centerYAnchor),
+            textField.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        let mlLbl = UILabel()
+        mlLbl.text = "ml"
+        mlLbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        mlLbl.textColor = hexStringToUIColor(hex: "#0ACBFF")
+        mlLbl.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addSubview(mlLbl)
+        NSLayoutConstraint.activate([
+            mlLbl.leadingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 10),
+            mlLbl.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
+            mlLbl.centerYAnchor.constraint(equalTo: datePicker.centerYAnchor),
+            mlLbl.heightAnchor.constraint(equalToConstant: 30),
+            mlLbl.widthAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        let confirmBtn = UIButton()
+        confirmBtn.titleLabel?.text = "OK"
+        confirmBtn.setTitleColor(hexStringToUIColor(hex: "#0ACBFF"), for: .normal)
+        confirmBtn.setTitle("OK", for: .normal)
+        confirmBtn.translatesAutoresizingMaskIntoConstraints = false
+        confirmBtn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
+        backView.addSubview(confirmBtn)
+        NSLayoutConstraint.activate([
+            confirmBtn.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
+            confirmBtn.trailingAnchor.constraint(equalTo: backView.trailingAnchor,constant: -20),
+            confirmBtn.widthAnchor.constraint(equalToConstant: 40),
+            confirmBtn.heightAnchor.constraint(equalToConstant: 40),
+            confirmBtn.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -10)
+        ])
+        
+        let deleteBtn = UIButton()
+        deleteBtn.titleLabel?.text = "Cancel"
+        deleteBtn.setTitleColor(UIColor.lightGray, for: .normal)
+        deleteBtn.setTitle("Cancel", for: .normal)
+        deleteBtn.translatesAutoresizingMaskIntoConstraints = false
+        deleteBtn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
+        backView.addSubview(deleteBtn)
+        NSLayoutConstraint.activate([
+            deleteBtn.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
+            deleteBtn.trailingAnchor.constraint(equalTo: confirmBtn.leadingAnchor,constant: -15),
+            deleteBtn.widthAnchor.constraint(equalToConstant: 70),
+            deleteBtn.heightAnchor.constraint(equalToConstant: 40),
+            deleteBtn.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -10)
+        ])
+    }
+    @objc func confirmBtnAction(){
+        backGroundView.isHidden = true
     }
 }
 extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{

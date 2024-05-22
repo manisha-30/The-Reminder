@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01B451A1AD7340F44D6E0BA2 /* Pods_The_Reminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8320D425B00C6FE2319911 /* Pods_The_Reminder.framework */; };
+		F93F89352BFDC4B7009B28A1 /* BarPlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F89342BFDC4B7009B28A1 /* BarPlotView.swift */; };
 		F94F01932B463F920004CF3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F01922B463F920004CF3A /* AppDelegate.swift */; };
 		F94F01952B463F920004CF3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F01942B463F920004CF3A /* SceneDelegate.swift */; };
 		F94F01972B463F920004CF3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F01962B463F920004CF3A /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		386FDF8856952491518C545F /* Pods-The_Reminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Reminder.release.xcconfig"; path = "Target Support Files/Pods-The_Reminder/Pods-The_Reminder.release.xcconfig"; sourceTree = "<group>"; };
 		AFA0F9073339CB8F2DFE6D43 /* Pods-The_Reminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Reminder.debug.xcconfig"; path = "Target Support Files/Pods-The_Reminder/Pods-The_Reminder.debug.xcconfig"; sourceTree = "<group>"; };
+		F93F89342BFDC4B7009B28A1 /* BarPlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarPlotView.swift; sourceTree = "<group>"; };
 		F94F018F2B463F920004CF3A /* The_Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = The_Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94F01922B463F920004CF3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94F01942B463F920004CF3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,9 +81,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F93F89332BFDC4A0009B28A1 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				F93F89342BFDC4B7009B28A1 /* BarPlotView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		F94F01862B463F920004CF3A = {
 			isa = PBXGroup;
 			children = (
+				F93F89332BFDC4A0009B28A1 /* SwiftUI */,
 				F95B48372B9F6B070022DC04 /* Dashboard */,
 				F95B48362B9F6AF70022DC04 /* Settings */,
 				F95B48352B9F6AEC0022DC04 /* History */,
@@ -330,6 +341,7 @@
 				F94F01932B463F920004CF3A /* AppDelegate.swift in Sources */,
 				F9BE555C2B50701A00761781 /* DailyRecordCell.swift in Sources */,
 				F94F01952B463F920004CF3A /* SceneDelegate.swift in Sources */,
+				F93F89352BFDC4B7009B28A1 /* BarPlotView.swift in Sources */,
 				F95B48392B9F6B460022DC04 /* HistoryViewController.swift in Sources */,
 				F961FEE92B5BADEF005378AF /* ViewModel.swift in Sources */,
 				F961FEF22B5E757A005378AF /* customizedClass.swift in Sources */,
@@ -493,7 +505,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -524,7 +536,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

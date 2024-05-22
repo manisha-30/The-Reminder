@@ -8,9 +8,10 @@
 import Foundation
 import RealmSwift
 
-class ViewModel : NSObject{
+class ViewModel : NSObject,ObservableObject{
     let realm = try! Realm()
     var wdatas : Results<WDatas>!
+    @Published var wdatasChart: Results<WDatas> = try! Realm().objects(WDatas.self)
     func addValue(){
         self.wdatas = self.realm.objects(WDatas.self)
         print("fff",wdatas.count)
