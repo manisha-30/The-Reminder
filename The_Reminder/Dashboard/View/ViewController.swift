@@ -276,6 +276,7 @@ class ViewController: UIViewController {
             stackView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -10),
             stackView.topAnchor.constraint(equalTo: instructionLabel.topAnchor,constant: 15),
+            stackView.heightAnchor.constraint(equalToConstant: 200),
             stackView.bottomAnchor.constraint(equalTo: backView.bottomAnchor,constant: -10)
         ])
         
