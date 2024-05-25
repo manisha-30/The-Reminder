@@ -25,21 +25,35 @@
             </objects>
             <point key="canvasLocation" x="2254.2056074766356" y="365.4427645788337"/>
         </scene>
-        <!--History-->
+        <!--HistoryViewController-->
         <scene sceneID="0U6-q0-eqs">
             <objects>
-                <viewController id="IRH-OL-ddQ" sceneMemberID="viewController">
+                <viewController title="HistoryViewController" id="IRH-OL-ddQ" customClass="HistoryViewController" customModule="The_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qBP-vF-RF2">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LdU-DI-AcZ">
+                                <rect key="frame" x="0.0" y="47" width="428" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="NMv-dH-M7h"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zQ6-Nf-sRY"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LdU-DI-AcZ" firstAttribute="trailing" secondItem="zQ6-Nf-sRY" secondAttribute="trailing" id="05p-ga-d3I"/>
+                            <constraint firstItem="LdU-DI-AcZ" firstAttribute="top" secondItem="zQ6-Nf-sRY" secondAttribute="top" id="Ewl-z0-yXX"/>
+                            <constraint firstItem="LdU-DI-AcZ" firstAttribute="leading" secondItem="zQ6-Nf-sRY" secondAttribute="leading" id="mO6-RO-Qfg"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="history" id="R0a-dd-pXH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5n2-w1-jGv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1291" y="-358"/>
+            <point key="canvasLocation" x="1289.7196261682243" y="-358.31533477321818"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -363,13 +377,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
