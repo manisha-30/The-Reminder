@@ -6,10 +6,20 @@
 //
 
 import UIKit
-import RealmSwift
+
+class tabVC: UITabBarController,UITabBarControllerDelegate{
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tabBar.tintColor = .white
+        tabBar.unselectedItemTintColor = .darkGray
+        self.delegate = self
+    }
+}
 class ViewController: UIViewController {
     
-   
+    
+    @IBOutlet weak var brokenHeart: UIImageView!
     @IBOutlet weak var inTakeLabel: UILabel!
     @IBOutlet weak var addQuantity: UIImageView!
     @IBOutlet weak var tipLabel: UILabel!
@@ -21,9 +31,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var swapImage: UIImageView!
     @IBOutlet weak var swapView: UIView!
     
+    var textField1 = UITextField()
     let shapeLayer = CAShapeLayer()
-    var wdatas : Results<WDatas>!
-    let realm = try! Realm()
+    var wdatas : [tableData] = []
     var additionalCups:[cup] = []
     var backGroundView = UIView()
     var collectionView = ContentSizedcollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -32,15 +42,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "DailyRecordCell", bundle: nil), forCellReuseIdentifier: "DailyRecordCell")
+        textField1.delegate = self
+        
+        let userDefaults1 = UserDefaults.standard
+        if userDefaults1.value(forKey: "OnboardingFronScreen") == nil {
+            userDefaults1.set(true, forKey: "OnboardingFronScreen")
+            //            let storyboard = UIStoryboard(name: "OnboardingViewController", bundle: nil)
+            //            if let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController {
+            //                present(walkthroughViewController, animated: true, completion: nil)
+            //
+            //            }
+        }
+        //
         vm.getValue{
-            datas in
-            if let finalData = datas{
-                self.wdatas = finalData
-            }
+            datas,total  in
+            UserDefaults.standard.set(total, forKey: "totalInTakeValue")
+            self.wdatas = datas
+            self.tableView.reloadData()
         }
         setupUI()
         drawSemiCircle()
         updateIntakeValue(intakeQuantity: 0)
+//        graphViewModel().getCurrentMonthData()
     }
     
     @IBAction func addDailyTarget(_ sender: Any) {
@@ -72,17 +95,16 @@ class ViewController: UIViewController {
         animate.isRemovedOnCompletion = false
         shapeLayer.add(animate, forKey: "drawCircle")
         
-       
+        
         vm.addValue()
         vm.getValue{
-            datas in
-            if let finalData = datas{
-                self.wdatas = finalData
-                self.tableView.reloadData()
-            }
+            datas,total  in
+            UserDefaults.standard.set(total, forKey: "totalInTakeValue")
+            self.wdatas = datas
+            self.tableView.reloadData()
         }
         animateLabel.transform = .identity
-
+        
         let quantity = UserDefaults.standard.integer(forKey: "selectedCup")
         animateLabel.text = "+\(quantity) Well done"
         updateIntakeValue(intakeQuantity: quantity)
@@ -94,6 +116,9 @@ class ViewController: UIViewController {
         }
     }
     func setupUI(){
+        
+        brokenHeart.tintColor = .lightGray
+        
         animateLabel.alpha = 0
         animateLabel.textColor = hexStringToUIColor(hex: "#0ACBFF")
         
@@ -103,7 +128,7 @@ class ViewController: UIViewController {
         innercircle.layer.cornerRadius = innercircle.frame.width / 2
         innercircle.layer.masksToBounds = false
         innercircle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSemicircle)))
-       
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.layer.cornerRadius = 5  // Adjust the corner radius as needed
@@ -125,36 +150,26 @@ class ViewController: UIViewController {
         trackLayer.fillColor = UIColor.clear.cgColor
         self.outerCircleView.layer.addSublayer(trackLayer)
         
-
+        
         innercircle.layer.shadowOffset = CGSize.init(width: 0, height: 3)
         innercircle.layer.shadowColor = UIColor.gray.cgColor
         innercircle.layer.shadowRadius = 7
         innercircle.layer.shadowOpacity = 0.4
         
-       
-    }
-    func updateIntakeValue(intakeQuantity : Int){
-        let total = (UserDefaults.standard.integer(forKey: "totalInTakeValue") ) + intakeQuantity
-        UserDefaults.standard.set(total, forKey: "totalInTakeValue")
-        inTakeLabel.text = "\(total)/1200 ml"
-    }
-    @IBAction func homeBtn(_ sender: Any) {
         
     }
-    
-    @IBAction func historyBtn(_ sender: Any) {
+    func updateIntakeValue(intakeQuantity : Int){
+        let totalQuans = UserDefaults.standard.integer(forKey: "totalQuans")
+        let total = UserDefaults.standard.integer(forKey: "totalInTakeValue")
+        inTakeLabel.text = "\(total)/\(totalQuans) ml"
     }
-    
-    @IBAction func settingsBtn(_ sender: Any) {
-    }
-    
     @objc func swapCups(){
         print("cup swapped")
         additionalCups =  AdditionalCups.init().get()
         print("additionalCups",additionalCups)
         handlePopUp()
     }
-  
+    
     func handlePopUp(){
         let screenSize = UIScreen.main.bounds
         
@@ -197,7 +212,7 @@ class ViewController: UIViewController {
             closeButton.widthAnchor.constraint(equalToConstant: 30)
         ])
         
-         collectionView = ContentSizedcollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView = ContentSizedcollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(UINib(nibName: "chooseCup", bundle: nil), forCellWithReuseIdentifier: "chooseCup")
         collectionView.delegate = self
@@ -316,15 +331,15 @@ class ViewController: UIViewController {
             image.widthAnchor.constraint(equalToConstant: 25)
         ])
         
-        let textField = UITextField()
-        textField.borderStyle = .line
-        textField.keyboardType = .numberPad
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addSubview(textField)
+        textField1 = UITextField()
+        textField1.borderStyle = .line
+        textField1.keyboardType = .numberPad
+        textField1.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addSubview(textField1)
         NSLayoutConstraint.activate([
-            textField.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 10),
-            textField.centerYAnchor.constraint(equalTo: datePicker.centerYAnchor),
-            textField.heightAnchor.constraint(equalToConstant: 30)
+            textField1.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 10),
+            textField1.centerYAnchor.constraint(equalTo: datePicker.centerYAnchor),
+            textField1.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         let mlLbl = UILabel()
@@ -334,7 +349,7 @@ class ViewController: UIViewController {
         mlLbl.translatesAutoresizingMaskIntoConstraints = false
         stackView.addSubview(mlLbl)
         NSLayoutConstraint.activate([
-            mlLbl.leadingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 10),
+            mlLbl.leadingAnchor.constraint(equalTo: textField1.trailingAnchor, constant: 10),
             mlLbl.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
             mlLbl.centerYAnchor.constraint(equalTo: datePicker.centerYAnchor),
             mlLbl.heightAnchor.constraint(equalToConstant: 30),
@@ -346,7 +361,7 @@ class ViewController: UIViewController {
         confirmBtn.setTitleColor(hexStringToUIColor(hex: "#0ACBFF"), for: .normal)
         confirmBtn.setTitle("OK", for: .normal)
         confirmBtn.translatesAutoresizingMaskIntoConstraints = false
-        confirmBtn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
+        confirmBtn.addTarget(self, action: #selector(confirmAddOn), for: .touchUpInside)
         backView.addSubview(confirmBtn)
         NSLayoutConstraint.activate([
             confirmBtn.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
@@ -361,7 +376,7 @@ class ViewController: UIViewController {
         deleteBtn.setTitleColor(UIColor.lightGray, for: .normal)
         deleteBtn.setTitle("Cancel", for: .normal)
         deleteBtn.translatesAutoresizingMaskIntoConstraints = false
-        deleteBtn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
+        deleteBtn.addTarget(self, action: #selector(cancelAdOn), for: .touchUpInside)
         backView.addSubview(deleteBtn)
         NSLayoutConstraint.activate([
             deleteBtn.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
@@ -371,9 +386,51 @@ class ViewController: UIViewController {
             deleteBtn.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -10)
         ])
     }
-    @objc func confirmBtnAction(){
+    @objc func confirmAddOn(){
+        
+        textField1.resignFirstResponder()
+        let quantity = Int(textField1.text ?? "0") ?? 0
+        if quantity == 0{
+            
+        }else{
+            backGroundView.isHidden = true
+            vm.addValue(quantity: quantity)
+            vm.getValue{
+                datas,total  in
+                UserDefaults.standard.set(total, forKey: "totalInTakeValue")
+                self.wdatas = datas
+                self.tableView.reloadData()
+            }
+            updateIntakeValue(intakeQuantity: quantity)
+        }
+
+        
+    }
+    
+    @objc func cancelAdOn(){
+        textField1.resignFirstResponder()
         backGroundView.isHidden = true
     }
+}
+extension ViewController:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        guard let currentText = textField1.text,
+//                        let range = Range(range, in: currentText) else {
+//                      return false
+//                  }
+//        let updatedText = currentText.replacingCharacters(in: range, with: string)
+//                  
+//                  // Limit the text field to numeric characters only
+//        let allowedCharacters = CharacterSet.decimalDigits
+//                  let characterSet = CharacterSet(charactersIn: string)
+//                  return allowedCharacters.isSuperset(of: characterSet) && updatedText.count <= 3
+//    }
 }
 extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     

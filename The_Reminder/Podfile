@@ -7,4 +7,6 @@ target 'The_Reminder' do
 
   # Pods for The_Reminder
 	pod 'RealmSwift'
+	pod 'lottie-ios'
+
 end
