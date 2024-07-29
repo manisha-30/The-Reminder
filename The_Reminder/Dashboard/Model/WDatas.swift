@@ -13,3 +13,8 @@ class WDatas : Object{
     @objc dynamic var time : String = ""
     @objc dynamic var date : String = ""
 }
+struct tableData{
+     var value : Int = 0
+     var time : String = ""
+     var date : String = ""
+}
